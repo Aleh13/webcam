@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="d-flex justify-content-center">
+  <div class="card" style="width: 18rem;">
+    <% if @pupil.picture.attached? && @pupil.has_picture? %>
+      <%= image_tag(@pupil.picture, class: "card-img-top") %>
+    <% else %>
+      <img class="card-img-top" src="/cat.jpg" alt="">
+    <% end %>
+
+    <div class="card-body">
+      <h5 class="card-title"><%= @pupil.name %></h5>
+    </div>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Класс: <%= @pupil.klass %></li>
+      <li class="list-group-item">Питание: <%= @pupil.food %></li>
+      <li class="list-group-item">Присутствие: <%= @pupil.presence %></li>
+    </ul>
+
+    <div class="card-body">
+      <%= link_to 'Edit', edit_pupil_path(@pupil), class: "card-link btn btn-dark" %>
+      <%= link_to 'Back', pupils_path, class: "card-link btn btn-dark" %>
+    </div>
+  </div>
+</div>

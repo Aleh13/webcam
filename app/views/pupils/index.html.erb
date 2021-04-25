@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body style="background: #B0B0B0">
+
+<p id="notice"><%= notice %></p>
+
+<table class="table table-hover my-class">
+  <thead class="thead-dark">
+  <tr>
+    <th>Класс</th>
+    <th>Имя</th>
+    <th>Питание</th>
+    <th>Присутствие</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @pupils.each do |pupil| %>
+    <tr>
+      <td><%= pupil.klass %></td>
+      <td><%= pupil.name %></td>
+      <td><%= pupil.food %></td>
+      <td><%= pupil.presence %></td>
+      <td><%= link_to 'Show', pupil %></td>
+      <td><%= link_to 'Edit', edit_pupil_path(pupil) %></td>
+      <td><%= link_to 'Delete', pupil_path(pupil), method: :delete %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'Create Player', new_pupil_path, class: "btn btn-success btn-sm ml-5" %>
+
+
+
+
+</body>
+</html>
