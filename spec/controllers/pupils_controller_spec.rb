@@ -28,6 +28,30 @@ RSpec.describe PupilsController, type: :controller do
       is_expected.to be_successful
       is_expected.to render_template :show
     end
-  end
+    end
 
+  describe 'POST #create' do
+    let!(:pupil) { create(:pupil) }
+
+    let(:params) do
+      {
+          klass: pupil.klass,
+          name: pupil.name,
+          food: pupil.food,
+          presence: pupil.presence,
+          pupil: Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/1.jpg'))
+      }
+    end
+
+    subject do
+      post :create, params: params
+      response
+    end
+
+    context 'wih success' do
+      it 'saves player' do
+        is_expected.to be_successful
+      end
+    end
+  end
 end
