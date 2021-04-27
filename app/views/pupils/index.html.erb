@@ -20,6 +20,11 @@
   </thead>
 
   <tbody>
+
+   <%= select_date Date.today, prefix: :leave_date %>
+   <%= date_select("article", "written_on") %>
+    
+    
   <% @pupils.each do |pupil| %>
     <tr>
       <td><%= pupil.klass %></td>
